@@ -52,7 +52,7 @@ public class XEditText extends EditText {
                 return onDrawableClickListener.onRightDrawableClick(this);
             }
             drawable = getCompoundDrawables()[3];
-            if (drawable != null && event.getY() > getWidth() - drawable.getBounds().height() - getCompoundDrawablePadding() - getPaddingBottom()) {
+            if (drawable != null && event.getY() > getHeight() - drawable.getBounds().height() - getCompoundDrawablePadding() - getPaddingBottom()) {
                 return onDrawableClickListener.onBottomDrawableClick(this);
             }
         }
