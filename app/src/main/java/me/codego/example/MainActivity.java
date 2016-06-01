@@ -8,13 +8,13 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import me.codego.example.view.SimpleDrawableClickListener;
-import me.codego.example.view.XEditText;
-import me.codego.example.view.XTextView;
+import me.codego.example.view.ActionEditText;
+import me.codego.example.view.ActionTextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout layout;
-    private XEditText inputEdit;
+    private ActionEditText inputEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         layout = (LinearLayout) findViewById(R.id.layout);
-        inputEdit = (XEditText) findViewById(R.id.input);
+        inputEdit = (ActionEditText) findViewById(R.id.input);
 
         inputEdit.setOnDrawableClickListener(new SimpleDrawableClickListener(){
             @Override
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private View initTag(String tag) {
         final View rootView = getLayoutInflater().inflate(R.layout.layout_tag, null);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        XTextView tagView = (XTextView) rootView.findViewById(R.id.tag);
+        ActionTextView tagView = (ActionTextView) rootView.findViewById(R.id.tag);
         tagView.setText(tag);
         tagView.setOnDrawableClickListener(new SimpleDrawableClickListener(){
             @Override

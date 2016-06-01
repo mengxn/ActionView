@@ -10,14 +10,14 @@ import android.widget.EditText;
  * EditText中Drawable加点击事件
  * Created by mengxn on 16-5-9.
  */
-public class XEditText extends EditText {
+public class ActionEditText extends EditText {
 
     private OnDrawableClickListener onDrawableClickListener;
 
-    public XEditText(Context context) {
+    public ActionEditText(Context context) {
         super(context);
     }
-    public XEditText(Context context, AttributeSet attrs) {
+    public ActionEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

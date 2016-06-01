@@ -10,16 +10,16 @@ import android.widget.TextView;
  * TextView中Drawable加点击事件
  * Created by mengxn on 16-5-9.
  */
-public class XTextView extends TextView {
+public class ActionTextView extends TextView {
 
     private OnDrawableClickListener onDrawableClickListener;
 
-    public XTextView(Context context) {
+    public ActionTextView(Context context) {
         super(context);
         setClickable(true);
     }
 
-    public XTextView(Context context, AttributeSet attrs) {
+    public ActionTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

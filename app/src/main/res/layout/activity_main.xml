@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.codego.example.MainActivity">
 
-    <me.codego.example.view.XEditText
+    <me.codego.example.view.ActionEditText
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
