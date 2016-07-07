@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,20 +12,29 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="me.codego.example.MainActivity">
 
-    <me.codego.example.view.ActionEditText
+    <me.codego.view.ActionEditText
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableRight="@mipmap/ic_input_delete"
         android:hint="输入"
         android:paddingRight="10dp"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="addTag"
-        android:text="添加标签"/>
+        android:text="添加标签" />
+
+    <me.codego.view.FlowLayout
+        android:id="@+id/flow_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:horizontalSpacing="10dp"
+        app:verticalSpacing="10dp">
+
+    </me.codego.view.FlowLayout>
 
 
 </LinearLayout>

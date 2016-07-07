@@ -1,41 +1,45 @@
 package me.codego.example;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import me.codego.example.view.SimpleDrawableClickListener;
-import me.codego.example.view.ActionEditText;
-import me.codego.example.view.ActionTextView;
+import me.codego.view.ActionEditText;
+import me.codego.view.ActionTextView;
+import me.codego.view.FlowLayout;
+import me.codego.view.OnActionClickListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LinearLayout layout;
     private ActionEditText inputEdit;
+    private FlowLayout flowLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        layout = (LinearLayout) findViewById(R.id.layout);
         inputEdit = (ActionEditText) findViewById(R.id.input);
+        flowLayout = (FlowLayout) findViewById(R.id.flow_layout);
 
-        inputEdit.setOnDrawableClickListener(new SimpleDrawableClickListener(){
+        inputEdit.setOnActionClickListener(new OnActionClickListener(){
             @Override
-            public boolean onRightDrawableClick(View view) {
-                inputEdit.setText("");
-                return super.onRightDrawableClick(view);
+            public boolean onActionClick(Action action, View view) {
+                switch (action) {
+                    case RIGHT:
+                        inputEdit.setText("");
+                        break;
+                }
+                return false;
             }
         });
 
     }
 
     public void addTag(View view) {
-        layout.addView(initTag(inputEdit.getText().toString()));
+        flowLayout.addView(initTag(inputEdit.getText().toString()));
         inputEdit.setText("");
     }
 
@@ -44,20 +48,14 @@ public class MainActivity extends AppCompatActivity {
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         ActionTextView tagView = (ActionTextView) rootView.findViewById(R.id.tag);
         tagView.setText(tag);
-        tagView.setOnDrawableClickListener(new SimpleDrawableClickListener(){
+        tagView.setOnActionClickListener(new OnActionClickListener(){
             @Override
-            public boolean onRightDrawableClick(View view) {
-                layout.removeView(rootView);
+            public boolean onActionClick(Action action, View view) {
+                flowLayout.removeView(view);
                 Toast.makeText(MainActivity.this, "delete", Toast.LENGTH_SHORT).show();
-                return super.onRightDrawableClick(view);
+                return false;
             }
         });
-//        tagView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "click", Toast.LENGTH_SHORT).show();
-//            }
-//        });
         return rootView;
     }
 }
