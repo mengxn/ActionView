@@ -47,16 +47,30 @@ public class ActionEditText extends EditText {
     private boolean isUpOnDrawable(MotionEvent event) {
         if (onActionClickListener != null) {
             Drawable[] drawables = getCompoundDrawables();
-            for (Drawable drawable : drawables) {
+            for (int i = 0; i < drawables.length; i++) {
+                Drawable drawable = drawables[i];
                 if (drawable != null) {
-                    if (event.getX() < drawable.getBounds().width() + getCompoundDrawablePadding() + getPaddingLeft()) {
-                        return onActionClickListener.onActionClick(OnActionClickListener.Action.LEFT, this);
-                    } else if (event.getY() < drawable.getBounds().height() + getCompoundDrawablePadding() + getPaddingTop()) {
-                        return onActionClickListener.onActionClick(OnActionClickListener.Action.TOP, this);
-                    } else if (event.getX() > getWidth() - drawable.getBounds().width() - getCompoundDrawablePadding() - getPaddingRight()) {
-                        return onActionClickListener.onActionClick(OnActionClickListener.Action.RIGHT, this);
-                    } else if (event.getY() > getHeight() - drawable.getBounds().height() - getCompoundDrawablePadding() - getPaddingBottom()) {
-                        return onActionClickListener.onActionClick(OnActionClickListener.Action.BOTTOM, this);
+                    switch (i) {
+                        case 0:
+                            if (event.getX() < drawable.getBounds().width() + getCompoundDrawablePadding() + getPaddingLeft()) {
+                                return onActionClickListener.onActionClick(OnActionClickListener.Action.LEFT, this);
+                            }
+                            break;
+                        case 1:
+                            if (event.getY() < drawable.getBounds().height() + getCompoundDrawablePadding() + getPaddingTop()) {
+                                return onActionClickListener.onActionClick(OnActionClickListener.Action.TOP, this);
+                            }
+                            break;
+                        case 2:
+                            if (event.getX() > getWidth() - drawable.getBounds().width() - getCompoundDrawablePadding() - getPaddingRight()) {
+                                return onActionClickListener.onActionClick(OnActionClickListener.Action.RIGHT, this);
+                            }
+                            break;
+                        case 3:
+                            if (event.getY() > getHeight() - drawable.getBounds().height() - getCompoundDrawablePadding() - getPaddingBottom()) {
+                                return onActionClickListener.onActionClick(OnActionClickListener.Action.BOTTOM, this);
+                            }
+                            break;
                     }
                 }
             }

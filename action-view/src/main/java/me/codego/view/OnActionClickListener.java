@@ -24,7 +24,7 @@ public interface OnActionClickListener {
             this.direct = direct;
         }
 
-        public Action build(int direct) {
+        public static Action build(int direct) {
             for (Action action : values()) {
                 if (action.direct == direct) {
                     return action;
