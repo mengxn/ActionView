@@ -18,11 +18,11 @@ compile 'me.codego.view:action-view:0.0.1'
 ```
 ### Layout
 ```
-    <me.codego.view.ActionEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableRight="@mipmap/ic_input_delete"
-        android:textSize="18sp" />
+<me.codego.view.ActionEditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableRight="@mipmap/ic_input_delete"
+    android:textSize="18sp" />
 ```
 
 ```
